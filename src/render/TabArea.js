@@ -1,13 +1,25 @@
 import { useState } from "react";
+import GeneralTabLi from "./GeneralTabLi";
 
 
-export default function TabArea({ id, children }) {
+export default function TabArea(props) {
     const [activeTab, setActiveTab] = useState('Tab 1')
 
+    const generalTabHandler = (tabName) => {
+        setActiveTab(tabName)
+    }
 
-    return (
-        <div id={id} className="Tabs">
+    console.log(props.children);
+
+    return ( 
+        <div id={props.id} className="Tabs">
+            <ul className='nav'>
+                {props.children.map((child, index) => {
+                    return <GeneralTabLi key={index} content={child.title} pressHandler={generalTabHandler}/>
+                })}
+            </ul>
             this is ok
+            
         </div>
     )
 }

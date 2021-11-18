@@ -2,36 +2,43 @@ import { createElement } from "react";
 import TabArea from "./TabArea";
 import InputComponent from "../components/InputComponent";
 
-
-
 const keysToComponentsMap = {
-    MyTabs: TabArea,
-    MyInput: InputComponent,
-    MyButton: "buttons",
-    MyLabel: "labels"
-}
-
-
-
+	MyTabs: TabArea,
+	MyInput: InputComponent,
+	MyButton: "buttons",
+	MyLabel: "labels",
+};
 
 export default function renderComponent(config) {
-    
-    let isBase_component = typeof keysToComponentsMap[config.base_component]
-    let isComponents = typeof keysToComponentsMap[config.components]
-    
-    if (isBase_component !== "undefined" || isComponents !== "undefined") {
+
+
+    if (typeof keysToComponentsMap[config.base_component] !== "undefined") {
+        
+
+
         return createElement(
+            
             keysToComponentsMap[config.base_component],
             {
                 id: config.id,
-                key: config.id
             },
-            config.children.length > 0
-                ? config.children.map(child => renderComponent(child))
-                : null
-
-        );
-    }
-
+            [...config.children]
     
+        )
+    }
+    
+
+    // if (typeof keysToComponentsMap[config.base_component] !== "undefined") {
+    //     console.log( config.base_component);
+	// 	return createElement(
+	// 		keysToComponentsMap[config.base_component],
+	// 		{
+	// 			id: config.id,
+	// 			children: config.children,
+	// 		},
+	// 		config.children.length > 0
+	// 			? config.children.map((child) => renderComponent(child))
+	// 			: null
+	// 	);
+	// }
 }

@@ -1,6 +1,7 @@
-export default function LabelComponent({id}) {
+export default function LabelComponent(props) {
+
     return (
-        <label id={id} >
+        <label id={props.id} >
             this is a label
         </label>
     );
