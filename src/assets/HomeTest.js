@@ -15,7 +15,7 @@ module.exports = {
 				components: [
 					{
 						base_component: "MyInput",
-						text: "ID", //?????????????
+						text: "ID", 
 						id: "in1",
 						attributes: {
 							placeholder: "Please Type My ID",
@@ -26,8 +26,8 @@ module.exports = {
 						text: "Customer validation",
 						id: "btn1",
 						click: {
-							source_id: "in1", // 
-							target_id: "lbl1", //event.target.id
+							source_id: "in1", 
+							target_id: "lbl1", 
 						},
 					},
 					{
