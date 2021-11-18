@@ -1,6 +1,5 @@
 import { useState } from "react";
-import FirstTab from "./FirstTab";
-import SecondTab from "./SecondTab"
+import GeneralTab from "./GeneralTab";
 
 export default function Tab({ className, style, id, children }) {
     const [activeTab, setActiveTab] = useState('tab1')
@@ -21,7 +20,7 @@ export default function Tab({ className, style, id, children }) {
                 <li className={activeTab === "tab2" ? "active" : ""} onClick={handleTab2} >Tab 2</li>
             </ul>
             <div className="outlet">
-                {activeTab === "tab1" ? <FirstTab /> : <SecondTab />}
+                {activeTab === "tab1" ? <GeneralTab content='First Tab!! Hurray!!' theClassName='FirstTab' /> :  <GeneralTab content='Second Tab!! Hurray!!' theClassName='SecondTab' />}
             </div>
         </div>
     );
