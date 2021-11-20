@@ -1,7 +1,8 @@
 export default function LabelComponent(props) {
+    console.log(props);
 
     return (
-        <label id={props.id} >
+        <label id="blala" >
             this is a label
         </label>
     );

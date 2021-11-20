@@ -1,11 +1,11 @@
-const GeneralTabLi = ({content, pressHandler }) => {
+const GeneralTabLi = ({data,generalTabHandler}) => {
 	
 	const tabClick = () => {
-		pressHandler(content);
+		generalTabHandler(data.title);
 	}
 
 	return (
-        <li onClick={tabClick} >{content}</li>
+        <li onClick={tabClick} >{data.title}</li>
 	);
 };
 export default GeneralTabLi;

@@ -1,7 +1,8 @@
-export default function ButtonComponent({text, click, id}) {
+export default function ButtonComponent(props) {
+    console.log(props);
     return (
-        <button id={id} onClick={click.target_id} >
-            {text}
+        <button id="dsf"  >
+            press me
         </button>
     );
 }

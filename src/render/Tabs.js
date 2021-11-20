@@ -1,11 +1,8 @@
 import { useState } from "react";
 import GeneralTabContent from "./GeneralTabContent";
 import GeneralTabLi from "./GeneralTabLi";
-
-
-
-export default function Tabs({ className, id, children }) {
-    const [activeTab, setActiveTab] = useState('Tab 1')
+export default function Tabs({data}) {
+    const [activeTab, setActiveTab] = useState(null)
 
 
     const generalTabHandler = (tabName) => {
@@ -13,15 +10,25 @@ export default function Tabs({ className, id, children }) {
     }
 
     return (
-        <div id={id} className="Tabs">
+        <div id={data.id} className="Tabs">
             <ul className="nav">
-                <GeneralTabLi pressHandler={generalTabHandler} content="Tab 1" />
-                <GeneralTabLi pressHandler={generalTabHandler} content="Tab 2" />
-                <GeneralTabLi pressHandler={generalTabHandler} content="Tab 3" />
+                {data.children.map((child, index) => {
+                    return <GeneralTabLi key={index} data={child} generalTabHandler={generalTabHandler} />
+                })}
 
             </ul>
             <div className="outlet">
-                {activeTab === "Tab 1" ? <GeneralTabContent content='First Tab!! Hurray!!' /> :  <GeneralTabContent content='Second Tab!! Hurray!!' />}
+                
+                {activeTab && <GeneralTabContent content={activeTab} />}
+
+                {data.children.map((child, index) => {
+                    if (child.components.length > 0) {
+                        return (
+                            <div key={index}>this </div>
+                        )
+                    }
+                })}
+                
             </div>
         </div>
     );

@@ -3,7 +3,7 @@ import GeneralTabLi from "./GeneralTabLi";
 
 
 export default function TabArea(props) {
-    const [activeTab, setActiveTab] = useState('Tab 1')
+    const [activeTab, setActiveTab] = useState(null)
 
     const generalTabHandler = (tabName) => {
         setActiveTab(tabName)

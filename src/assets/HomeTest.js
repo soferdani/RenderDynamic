@@ -1,11 +1,3 @@
-// React.createElement(
-//     type,
-//     [props],
-//     [...children]
-//   )
-
-// type === base_component
-
 module.exports = {
 	simulation: {
 		base_component: "MyTabs",

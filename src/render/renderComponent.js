@@ -1,44 +1,43 @@
-import { createElement } from "react";
-import TabArea from "./TabArea";
+import TabAreaComponent from "../components/TabAreaComponent";
 import InputComponent from "../components/InputComponent";
+import ButtonComponent from "../components/ButtonComponent";
+import LabelComponent from "../components/LabelComponent";
 
 const keysToComponentsMap = {
-	MyTabs: TabArea,
+	MyTabs: TabAreaComponent,
 	MyInput: InputComponent,
-	MyButton: "buttons",
-	MyLabel: "labels",
+	MyButton: ButtonComponent,
+	MyLabel: LabelComponent,
 };
 
-export default function renderComponent(config) {
+export const renderComponent = (config) => {
+	console.log(config)
+	if (config.length !== undefined) {
+		config.map(childConfig => {
+			if (typeof keysToComponentsMap[childConfig.base_component] !== "undefined") {
+				let Component = keysToComponentsMap[childConfig.base_component];
+				console.log(childConfig);
+				return (
+					<Component config={childConfig}>
+						
+					</Component>
+				)
+			}
+		})
+		
+	} else {
+		if (typeof keysToComponentsMap[config.base_component] !== "undefined") {
+			let Component = keysToComponentsMap[config.base_component];
+			
+			return (
+				<Component config={config}>
+					{config.children.length > 0
+						? config.children.map((child) => renderComponent(child))
+						: null}
+				</Component>
+			);
+		}
+	}
 
 
-    if (typeof keysToComponentsMap[config.base_component] !== "undefined") {
-        
-
-
-        return createElement(
-            
-            keysToComponentsMap[config.base_component],
-            {
-                id: config.id,
-            },
-            [...config.children]
-    
-        )
-    }
-    
-
-    // if (typeof keysToComponentsMap[config.base_component] !== "undefined") {
-    //     console.log( config.base_component);
-	// 	return createElement(
-	// 		keysToComponentsMap[config.base_component],
-	// 		{
-	// 			id: config.id,
-	// 			children: config.children,
-	// 		},
-	// 		config.children.length > 0
-	// 			? config.children.map((child) => renderComponent(child))
-	// 			: null
-	// 	);
-	// }
 }
