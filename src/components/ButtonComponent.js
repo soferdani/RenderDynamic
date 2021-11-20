@@ -1,8 +1,7 @@
-export default function ButtonComponent(props) {
-    console.log(props);
+export default function ButtonComponent({config}) {
     return (
-        <button id="dsf"  >
-            press me
+        <button id={config.id}  >
+            {config.text}
         </button>
     );
 }

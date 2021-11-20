@@ -5,7 +5,6 @@ import config from "./assets/HomeTest";
 function App() {
 	return (
 		<>
-			{/* <Tabs data={config.simulation} /> */}
 			{renderComponent(config.simulation)}
 		</>
 	);

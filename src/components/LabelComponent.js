@@ -1,9 +1,7 @@
-export default function LabelComponent(props) {
-    console.log(props);
-
+export default function LabelComponent({config}) {
     return (
-        <label id="blala" >
-            this is a label
+        <label id={config.id} >
+            {config.text}
         </label>
     );
 }

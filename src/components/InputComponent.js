@@ -1,8 +1,7 @@
-export default function InputComponent(props) {
-    console.log("we are herree");
+export default function InputComponent({config}) {
     return (
         <div className="input-component">
-            <input id='fa' placeholder='this is place holder' />
+            <input type='text' id={config.id} placeholder={config.attributes.placeholder} />
         </div>
     );
 }
