@@ -11,33 +11,15 @@ const keysToComponentsMap = {
 };
 
 export const renderComponent = (config) => {
-	console.log(config)
-	if (config.length !== undefined) {
-		config.map(childConfig => {
-			if (typeof keysToComponentsMap[childConfig.base_component] !== "undefined") {
-				let Component = keysToComponentsMap[childConfig.base_component];
-				console.log(childConfig);
-				return (
-					<Component config={childConfig}>
-						
-					</Component>
-				)
-			}
-		})
-		
-	} else {
 		if (typeof keysToComponentsMap[config.base_component] !== "undefined") {
 			let Component = keysToComponentsMap[config.base_component];
 			
 			return (
 				<Component config={config}>
-					{config.children.length > 0
-						? config.children.map((child) => renderComponent(child))
-						: null}
+					
 				</Component>
 			);
 		}
-	}
-
+	
 
 }

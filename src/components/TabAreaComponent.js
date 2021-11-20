@@ -1,7 +1,7 @@
 import { renderComponent } from "../render/renderComponent";
 
-export default function TabAreaComponent({ config }) {
-    console.log(...config.children);
+export default function TabAreaComponent({config}) {
+    console.log(config.id);
     // debugger;
     return (
         <div id={config.id} className='tab-area'>
@@ -9,26 +9,17 @@ export default function TabAreaComponent({ config }) {
 
 
 
-
             {config.children.map((child, index) => {
-                if (child.components.length > 0) {
                     return (
-                        <>
-                            <li key={index+1}>
-                                {child.title}
-                            </li>
-                            <div className='tab-area-content'>
-                                {renderComponent(child.components)}
-                            </div>
-                        </>
-                    )               
-                } else {
-                    return (
-                        <li key={index}>
+                        <div key={index}>
                             {child.title}
-                        </li>
+                            {child.components.map((oneChild) => {
+                                return (
+                                    renderComponent(oneChild)
+                                )
+                            })}
+                        </div>
                     )
-                }
             })}
         </div>
     );
