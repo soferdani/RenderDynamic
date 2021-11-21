@@ -1,6 +1,6 @@
 
 const initialState = {
-	userInput: "dani test",
+	userInput: "",
 	inputToDisplay: "",
 }
 
@@ -35,3 +35,4 @@ export function setInputToDisplay(inputToDisplay) {
 		payload: inputToDisplay
 	}
 }
+
