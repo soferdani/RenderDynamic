@@ -1,14 +1,12 @@
-import { useState } from "react";
 import {setUserInput} from "../actions/main" 
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 
 export default function InputComponent({ config }) {
     const dispatch = useDispatch();
-    const [inputValue, setInputValue] = useState("")
+    let globalState = useSelector(state => state);
     
     const HandleChange = (event) => {
-        setInputValue(event.target.value)
-        dispatch(setUserInput(inputValue))
+        dispatch(setUserInput(event.target.value))
     }
     
     return (
@@ -18,7 +16,7 @@ export default function InputComponent({ config }) {
                 id={config.id}
                 placeholder={config.attributes.placeholder}
                 onChange={HandleChange}
-                value={inputValue} />
+                value={globalState.userInput.userInput} />
         </div>
     );
 }
