@@ -1,11 +1,6 @@
 import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { decrement, increment } from "../actions/main";
 
 export default function InputTest() {
-    const userInput = useSelector(state => state);
-    console.log("this" ,userInput);
-
 
 
     const [input, setInput] = useState('');
