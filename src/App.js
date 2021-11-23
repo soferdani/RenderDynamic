@@ -5,9 +5,9 @@ import config from "./assets/HomeTest";
 
 function App() {
 	return (
-		<>
+		<div className="App">
 			{renderComponent(config.simulation)}
-		</>
+		</div>
 	);
 }
 
