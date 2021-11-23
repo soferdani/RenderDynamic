@@ -3,7 +3,7 @@
 This project was created by Dani sofer as a home assignment.
 
 ## Description
-This application render a dynamic tab components from JSON file provide.
+This small application renders dynamic tab components from JSON file provided.
 It run with redux state management tool to enable dynamic component creation.
 No Css or design has been add.
 
